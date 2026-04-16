@@ -1,0 +1,49 @@
+<section class="min-h-screen flex flex-col justify-center items-center pt-20 pb-12 relative overflow-hidden">
+      <!-- Glow effect behind hero text -->
+      <div class="absolute top-[30%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-neon-red opacity-10 blur-[100px] z-[-1]"></div>
+      
+      <div class="container-narrow flex flex-col items-center text-center">
+        <!-- Minimal Badge -->
+        <div 
+          appScrollReveal 
+          [delay]="0.1" 
+          direction="up"
+          class="inline-block px-4 py-1.5 border border-border text-xs font-mono font-bold tracking-widest uppercase text-slate-400 mb-8 bg-surface">
+          System://Portfolio
+        </div>
+        
+        <!-- Headline -->
+        <h1 
+          class="text-4xl md:text-6xl font-mono font-bold text-white mb-6 leading-tight uppercase relative">
+          <span class="block text-slate-400 text-2xl md:text-3xl mb-2">Init Process: <span class="text-white">John Doe</span></span>
+          <span #glitchText class="relative inline-block text-neon-red glow-text-red" data-text="Frontend Architect">
+            Frontend Architect
+          </span>
+        </h1>
+        
+        <!-- Subtitle -->
+        <p 
+          appScrollReveal 
+          [delay]="0.5" 
+          class="text-lg text-slate-400 max-w-2xl mx-auto mb-12 font-sans tracking-tight">
+          Engineering high-end web experiences with clean code, 
+          structural layouts, and fluid performance.
+        </p>
+
+        <!-- Terminal Widget -->
+        <div appScrollReveal [delay]="0.7" direction="up" class="w-full">
+          <app-terminal></app-terminal>
+        </div>
+        
+        <!-- CTA -->
+        <div appScrollReveal [delay]="1.1" class="mt-8 relative group">
+          <!-- Glow Behind Button -->
+          <div class="absolute -inset-1 bg-neon-red opacity-20 blur transition duration-500 group-hover:opacity-40"></div>
+          
+          <button class="relative bg-surface border border-border hover:border-neon-red text-white font-mono uppercase text-sm py-3 px-8 flex items-center gap-2 transition-all glow-neon-red">
+            Execute_ViewProjects
+            <!-- <mat-icon>terminal</mat-icon> -->
+          </button>
+        </div>
+      </div>
+    </section>

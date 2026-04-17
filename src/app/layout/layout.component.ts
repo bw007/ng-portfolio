@@ -1,12 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { HeroComponent } from './hero/hero.component';
-import { ScrollRevealDirective } from '@app/shared/directives/gsap-scroll-trigger.directive';
 import { HeaderComponent } from './header/header.component';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-layout',
-  imports: [HeroComponent, ScrollRevealDirective, HeaderComponent],
+  imports: [HeroComponent, HeaderComponent],
   templateUrl: './layout.component.html',
 })
 export class LayoutComponent {

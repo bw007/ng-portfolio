@@ -1,70 +1,7 @@
 <app-header></app-header>
 
 <main>
-  <app-hero id="about"></app-hero>
-
-  <!-- Tech Stack Grid Section -->
-  <section id="stack" class="py-24 border-y border-border relative">
-    <div class="absolute inset-0 bg-black opacity-80 z-[-1]"></div>
-    <div class="w-full max-w-4xl mx-auto px-6">
-      <div class="mb-16 text-center">
-        <h2 class="text-3xl font-mono text-white mb-4 uppercase">System Modules</h2>
-        <p class="text-slate-400 font-sans tracking-tight max-w-lg mx-auto">
-          Core technologies allocated for rendering scalable frontend architecture.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        @for (tech of techStack; track tech.name) {
-          <div class="p-6 bg-surface border border-border flex flex-col items-center justify-center gap-3 hover:border-neon-red transition-colors group relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-[2px] bg-neon-red -translate-y-full group-hover:translate-y-[100px] transition-transform duration-700 ease-linear opacity-50"></div>
-            <span class="text-3xl block filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all">
-              {{ tech.icon }}
-            </span>
-            <span class="font-mono text-xs text-slate-400 uppercase tracking-widest group-hover:text-white transition-colors">
-              {{ tech.name }}
-            </span>
-          </div>
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Project List Section -->
-  <section id="projects" class="py-24 relative">
-    <div class="w-full max-w-4xl mx-auto px-6">
-      <div class="mb-16">
-        <h2 class="text-3xl font-mono text-white mb-4 uppercase">Execution Logs</h2>
-        <p class="text-slate-400 font-sans tracking-tight">Recent engineering deployments.</p>
-      </div>
-
-      <div class="space-y-6">
-        @for (project of projects; track project.title) {
-          <div class="bg-surface border border-border p-8 hover:border-cyber-blue transition-colors flex flex-col md:flex-row gap-8 justify-between items-start md:items-center group">
-            <div class="max-w-xl">
-              <h3 class="text-xl font-bold font-mono text-white mb-2 group-hover:text-cyber-blue transition-colors uppercase">
-                >> {{ project.title }}
-              </h3>
-              <p class="text-slate-400 mb-4 font-sans tracking-tight">{{ project.description }}</p>
-              <div class="flex gap-3 flex-wrap">
-                @for (tag of project.tags; track tag) {
-                  <span class="text-[10px] font-mono bg-black border border-border text-slate-500 px-2 py-1 uppercase tracking-wider">
-                    {{tag}}
-                  </span>
-                }
-              </div>
-            </div>
-            <div class="mt-4 md:mt-0">
-              <button class="px-5 py-2 border border-border bg-black text-cyber-blue hover:border-cyber-blue hover:shadow-[0_0_10px_rgba(0,242,255,0.3)] font-mono text-xs uppercase transition-all flex gap-2 items-center focus:outline-none">
-                Deploy
-                <span class="material-icons text-sm">rocket_launch</span>
-              </button>
-            </div>
-          </div>
-        }
-      </div>
-    </div>
-  </section>
+  <router-outlet />
 </main>
 
 <!-- Simple Footer -->

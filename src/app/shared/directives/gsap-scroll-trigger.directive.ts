@@ -1,4 +1,12 @@
-import { Directive, ElementRef, OnInit, OnDestroy, Input, PLATFORM_ID, Inject } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  OnInit,
+  OnDestroy,
+  Input,
+  PLATFORM_ID,
+  Inject,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -14,13 +22,13 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
 
   constructor(
     private el: ElementRef,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {}
 
   ngOnInit() {
-    if (!isPlatformBrowser(this.platformId)) return; 
+    if (!isPlatformBrowser(this.platformId)) return;
 
-    gsap.registerPlugin(ScrollTrigger); 
+    gsap.registerPlugin(ScrollTrigger);
 
     this.ctx = gsap.context(() => {
       let y = 0;
@@ -46,7 +54,7 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
             start: 'top 85%',
             toggleActions: 'play none none reverse',
           },
-        }
+        },
       );
     }, this.el.nativeElement);
   }

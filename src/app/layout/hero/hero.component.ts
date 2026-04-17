@@ -1,11 +1,10 @@
-import { ScrollRevealDirective } from './../../shared/directives/gsap-scroll-trigger.directive';
 import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import { ScrollRevealDirective } from '@app/shared/directives/gsap-scroll-trigger.directive';
 import gsap from 'gsap';
-import { TerminalComponent } from '../terminal/terminal.component';
 
 @Component({
   selector: 'app-hero',
-  imports: [TerminalComponent, ScrollRevealDirective],
+  imports: [ScrollRevealDirective],
   templateUrl: './hero.component.html',
 })
 export class HeroComponent implements AfterViewInit, OnDestroy {
@@ -15,10 +14,10 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.ctx = gsap.context(() => {
       const el = this.glitchText.nativeElement;
-      
+
       // Typical scanline/glitch effect using GSAP
       const tl = gsap.timeline({ repeat: -1, repeatDelay: Math.random() * 2 + 1 });
-      
+
       tl.to(el, { x: 2, skewX: 5, duration: 0.1, ease: 'power1.inOut' })
         .to(el, { x: -2, skewX: -5, duration: 0.1, ease: 'power1.inOut' })
         .to(el, { x: 0, skewX: 0, opacity: 0.8, duration: 0.1 })

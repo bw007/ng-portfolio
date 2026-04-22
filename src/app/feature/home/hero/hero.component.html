@@ -1,42 +1,43 @@
-<section class="min-h-screen flex flex-col justify-center items-center pt-20 pb-12 relative overflow-hidden">
-  <!-- Glow effect behind hero text -->
-  <div class="absolute top-[30%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-neon-red opacity-10 blur-[100px] z-[-1]"></div>
-
+<section class="min-h-[85vh] flex flex-col justify-center items-center pt-24 pb-12 relative overflow-hidden" id="about">
   <div class="w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
-    <!-- Minimal Badge -->
-    <div class="inline-block px-4 py-1.5 border border-border text-xs font-mono font-bold tracking-widest uppercase text-slate-400 mb-8 bg-surface">
-      System://Portfolio
+    
+    <!-- Available Badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-border rounded-full text-xs font-medium text-neutral-300 mb-10 bg-black/50 backdrop-blur-sm">
+      <span class="w-2 h-2 rounded-full bg-angular-modern"></span>
+      Available for Hire Now
     </div>
 
     <!-- Headline -->
-    <h1 class="text-4xl md:text-6xl font-mono font-bold text-white mb-6 leading-tight uppercase relative">
-      <span class="block text-slate-400 text-2xl md:text-3xl mb-2">
-        Init Process: <span class="text-white">John Doe</span>
-      </span>
-      <span
-        scrambleText
-        class="relative inline-block text-neon-red glow-text-red"
-        data-text="Frontend Architect"
-      >
-        Frontend Architect
-      </span>
+    <h1 class="text-5xl md:text-7xl font-semibold text-white mb-6 leading-[1.1] tracking-tight">
+      Modern frontend experiences
+      <span class="block text-neutral-400">built for the best</span>
     </h1>
 
     <!-- Subtitle -->
-    <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-12 font-sans tracking-tight">
-      Engineering high-end web experiences with clean code, structural layouts, and fluid
-      performance.
+    <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      I'm utilizing the best web technologies and delivering premium 
+      applications. Your project will benefit from enhanced performance, 
+      clean code, and improved user experiences.
     </p>
 
-    <!-- CTA -->
-    <div class="mt-8 relative group">
-      <!-- Glow Behind Button -->
-      <div class="absolute -inset-1 bg-neon-red opacity-20 blur transition duration-500 group-hover:opacity-40"></div>
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center gap-6 mt-4">
+      <app-button label="View Projects" href="#projects">
+        <svg slot="right" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </app-button>
 
-      <button class="relative bg-surface border border-border hover:border-neon-red text-white font-mono uppercase text-sm py-3 px-8 flex items-center gap-2 transition-all glow-neon-red">
-        Execute_ViewProjects
-        <!-- <mat-icon>terminal</mat-icon> -->
-      </button>
+      <app-button label="About me" severity="danger">
+        <svg slot="left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M8 3v7M5 7l3 3 3-3M3 13h10" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </app-button>
+      <a href="#contact" class="text-white font-semibold text-sm hover:text-neutral-300 transition-colors">
+        Read my resume
+      </a>
     </div>
+    
   </div>
 </section>

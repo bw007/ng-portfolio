@@ -3,59 +3,50 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
   
-  --color-neon-red: #ff0033;
-  --color-dark-bg: #000000;
-  --color-surface: #111111;
-  --color-border: #222222;
-  --color-cyber-blue: #00f2ff;
-  
-  /* Reset all border radii to 0 */
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
-  --radius-2xl: 0px;
-  --radius-3xl: 0px;
-  --radius-full: 0px;
-  --radius: 0px;
+  --color-dark-bg: #0d0d0d;
+  --color-surface: #141414;
+  --color-border: #262626;
+  --color-emerald-accent: #10b981;
+  --color-angular-red: #dd0031;
+  --color-angular-pink: #ff318c;
+  --color-angular-modern: #ff2740;
 }
 
 body {
   background-color: var(--color-dark-bg);
-  color: #eeeeee;
+  color: #e5e5e5;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
-  
-  /* Blueprint Grid Pattern */
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+  font-family: var(--font-sans);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
 }
 
 p {
   letter-spacing: -0.01em; 
+  color: #a3a3a3;
 }
 
 /* Glassmorphism utility for sticky nav */
 .glass-nav {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(13, 13, 13, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
 }
 
-/* Special Effects */
-.glow-neon-red {
-  box-shadow: 0 0 15px rgba(255, 0, 51, 0.3);
+/* Hide scrollbar for horizontal scroll containers if needed */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-.glow-text-red {
-  text-shadow: 0 0 15px rgba(255, 0, 51, 0.6);
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+

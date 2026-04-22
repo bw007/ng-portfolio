@@ -1,0 +1,31 @@
+/* SVG aylanishi */
+.hamburger-svg {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger-svg.active {
+  transform: rotate(-45deg);
+}
+
+/* Umumiy chiziqlar stili */
+.line {
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: 
+    stroke-dasharray 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tepasidagi va pastidagi aylanma chiziq */
+.line-top-bottom {
+  stroke-dasharray: 12 63; /* Boshlang'ich holat */
+}
+
+/* Aktiv holatdagi animatsiya (X shakliga kelishi) */
+.hamburger-svg.active .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}

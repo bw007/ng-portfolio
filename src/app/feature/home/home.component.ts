@@ -7,35 +7,45 @@ import { HeroComponent } from "@app/feature/home/hero/hero.component";
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  techStack = [
-    { name: 'Angular', icon: '🅰️' },
-    { name: 'TypeScript', icon: '🔷' },
-    { name: 'RxJS', icon: '⚡' },
-    { name: 'TailwindCSS', icon: '🌊' },
-    { name: 'GSAP', icon: '🎬' },
-    { name: 'Node.js', icon: '🟢' },
-    { name: 'Signals', icon: '📡' },
-    { name: 'Vitest', icon: '🧪' },
+  skills = [
+    {
+      name: 'Angular',
+      category: 'Google',
+      badges: ['Frontend', 'Signals'],
+      description: 'Excels at building scalable, enterprise-level web applications and dynamic interfaces.'
+    },
+    {
+      name: 'TypeScript',
+      category: 'Microsoft',
+      badges: ['Strong Typing', 'OOP'],
+      description: 'Strong reasoning, static typing, and structural understanding for complex tasks.'
+    },
+    {
+      name: 'Tailwind CSS',
+      category: 'Styling',
+      badges: ['Utility-First', 'Design'],
+      description: 'A speedy and economical styling framework that excels at rapid UI development.'
+    },
+    {
+      name: 'RxJS',
+      category: 'Reactive',
+      badges: ['Streams', 'Async'],
+      description: 'Reactive models that deliver enhanced performance for asynchronous data streams.'
+    }
   ];
 
-  projects = [
+  features = [
     {
-      title: 'Enterprise Dashboard Platform',
-      description:
-        'A structural, data-heavy analytics dashboard built with Angular Signals and clean architecture.',
-      tags: ['Angular', 'NgRx', 'Tailwind'],
+      title: 'Clean Architecture',
+      description: 'Prioritizing clean, maintainable code structures to ensure long-term stability and easy feature additions.'
     },
     {
-      title: 'Real-Time Financial Grid',
-      description:
-        'High-performance web socket data grid supporting millions of updates per minute without jank.',
-      tags: ['WebSockets', 'RxJS', 'd3'],
+      title: 'Performance First',
+      description: 'Applications are optimized for speed and efficiency, delivering seamless experiences even with heavy data.'
     },
     {
-      title: 'Design System Library',
-      description:
-        'A robust component library utilizing modern Angular strictly typed forms and standalone components.',
-      tags: ['Storybook', 'A11y', 'Tailwind'],
-    },
+      title: 'Responsive Design',
+      description: 'All layouts are built mobile-first, ensuring they look stunning and function perfectly on any device.'
+    }
   ];
-}
+}

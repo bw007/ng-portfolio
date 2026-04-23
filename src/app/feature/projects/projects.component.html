@@ -1,0 +1,23 @@
+<div class="pt-24 min-h-screen bg-dark-bg">
+  <!-- Values / Features Section -->
+  <section id="projects" class="py-24 bg-dark-bg">
+    <div class="w-full max-w-5xl mx-auto px-6">
+      <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold text-white mb-4 tracking-tight">Build the future of web apps</h2>
+        <p class="text-neutral-400 text-lg">My engineering approach is designed to help scale and improve the performance of your business.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        @for (feature of features; track feature.title) {
+          <div class="bg-surface border border-border p-8 rounded-2xl flex flex-col items-center text-center hover:border-neutral-700 transition-colors">
+            <div class="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-angular-modern mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-3">{{ feature.title }}</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">{{ feature.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</div>

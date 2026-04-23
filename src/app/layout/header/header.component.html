@@ -14,30 +14,64 @@
       <a routerLink="/contact" class="hover:text-white transition-colors">Contact</a>
     </nav>
 
-    <!-- Desktop Call to Action -->
-    <app-button
-      class="hidden md:block"
-      label="Hire Me"
-      iconLeft="chewron-right"
-      size="small"
-      severity="angular"
-      [rounded]="true"
-    />
+    <!-- Desktop Call to Action & Phone -->
+    <div class="flex items-center gap-3">
+      <div class="relative group">
+        <span class="absolute inset-0 rounded-full bg-white/10 animate-ping opacity-75"></span>
+        <a
+          href="tel:+998907226892"
+          class="relative flex items-center justify-center h-8 w-8 rounded-full bg-surface hover:bg-[#1f1f1f] border border-border transition-colors duration-200 text-neutral-400 hover:text-white"
+          aria-label="Call me"
+        >
+          <app-icon name="phone" [size]="14" />
+        </a>
+        
+        <!-- Popup / Tooltip -->
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-3 px-3 py-2 bg-[#1f1f1f] border border-[#333] rounded-lg text-xs font-medium text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-xl z-50">
+          +998 (90) 722-68-92
+          <!-- Tooltip Arrow -->
+          <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-[#1f1f1f] border-t border-l border-[#333] rotate-45"></div>
+        </div>
+      </div>
 
-    <!-- Hamburger Button (Mobile) -->
-    <label 
-      (click)="toggleMenu()" 
-      class="cursor-pointer md:hidden flex z-50 items-center color-white justify-center rounded-full"
-    >
-      <svg 
-        viewBox="0 0 32 32" 
-        class="hamburger-svg h-8"
-        [class.active]="isMobileMenuOpen()"
+      <!-- Language Selector -->
+      <div class="relative group cursor-pointer">
+        <div class="flex items-center justify-center gap-1 h-8 w-14 px-2 rounded-md hover:bg-[#1f1f1f] transition-colors duration-200 text-sm font-medium text-neutral-300 hover:text-white">
+          <span class="capitalize">{{ currentLang() === 'uz' ? 'O\'z' : 'En' }}</span>
+          <app-icon name="chewron-down" [size]="14" class="transition-transform duration-200 group-hover:rotate-180" />
+        </div>
+        
+        <!-- Dropdown Menu -->
+        <div class="absolute top-full right-0 mt-2 w-14 bg-surface border border-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden flex flex-col py-1">
+          @for (lang of languages; track lang) {
+            <button 
+              (click)="setLang(lang.code)" 
+              class="px-3 py-1 cursor-pointer text-sm text-left hover:bg-[#1f1f1f] transition-colors"
+              [class.text-angular-modern]="currentLang() === lang.code"
+              [class.text-neutral-400]="currentLang() !== lang.code"
+              [class.font-medium]="currentLang() === lang.code"
+            >
+              {{ lang.title }}
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Hamburger Button (Mobile) -->
+      <label 
+        (click)="toggleMenu()" 
+        class="cursor-pointer md:hidden flex z-50 items-center color-white justify-center rounded-full"
       >
-        <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-        <path class="line" d="M7 16 27 16"></path>
-      </svg>
-    </label>
+        <svg 
+          viewBox="0 0 32 32" 
+          class="hamburger-svg h-8"
+          [class.active]="isMobileMenuOpen()"
+        >
+          <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+    </div>
   </div>
 
   <!-- Mobile Sidebar Overlay -->
@@ -54,21 +88,27 @@
          [class.translate-x-full]="!isMobileMenuOpen()">
       
       <nav class="flex flex-col gap-6 text-sm text-neutral-300">
-        <a routerLink="/home" (click)="closeMenu()" class="hover:text-white transition-colors">Home</a>
-        <a routerLink="/about" (click)="closeMenu()" class="hover:text-white transition-colors">About</a>
-        <a routerLink="/projects" (click)="closeMenu()" class="hover:text-white transition-colors">Projects</a>
-        <a routerLink="/contact" (click)="closeMenu()" class="hover:text-white transition-colors">Contact</a>
+        <a routerLink="/home" class="hover:text-white transition-colors">Home</a>
+        <a routerLink="/about" class="hover:text-white transition-colors">About</a>
+        <a routerLink="/projects" class="hover:text-white transition-colors">Projects</a>
+        <a routerLink="/contact" class="hover:text-white transition-colors">Contact</a>
       </nav>
 
-      <app-button
-        class="mt-8"
-        label="Hire Me"
-        iconLeft="chewron-right"
-        size="small"
-        (onClick)="closeMenu()"
-        severity="angular"
-        [rounded]="true"
-      />
+      <div class="mt-8 flex flex-col gap-6">
+        <a href="tel:+998907226892" class="flex items-center gap-2 text-sm font-medium text-neutral-300 hover:text-white transition-colors">
+          <app-icon name="phone" [size]="14" class="text-angular-modern" />
+          +998 (90) 722-68-92
+        </a>
+        
+        <app-button
+          label="Hire Me"
+          iconLeft="chewron-right"
+          size="small"
+          severity="angular"
+          [rounded]="true"
+          routerLink="/contact"
+        />
+      </div>
     </div>
   </div>
 </header>

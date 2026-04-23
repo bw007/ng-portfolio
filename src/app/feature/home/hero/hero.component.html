@@ -1,42 +1,55 @@
-<section class="min-h-[85vh] flex flex-col justify-center items-center pt-24 pb-12 relative overflow-hidden" id="about">
-  <div class="w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
+<section class="min-h-screen flex flex-col justify-center items-center pt-24 pb-12 relative overflow-hidden" id="about">
+  <div class="w-full max-w-5xl mx-auto px-6 flex flex-col items-center text-center">
     
     <!-- Available Badge -->
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-border rounded-full text-xs font-medium text-neutral-300 mb-10 bg-black/50 backdrop-blur-sm">
-      <span class="w-2 h-2 rounded-full bg-angular-modern"></span>
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-border rounded-lg text-xs font-medium text-neutral-300 mb-10 bg-black/50 backdrop-blur-sm">
+      <span class="relative flex size-2.5">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-angular-modern opacity-75"></span>
+        <span class="relative inline-flex size-2.5 rounded-full bg-angular-modern"></span>
+      </span>
       Available for Hire Now
     </div>
 
     <!-- Headline -->
-    <h1 class="text-5xl md:text-7xl font-semibold text-white mb-6 leading-[1.1] tracking-tight">
-      Modern frontend experiences
-      <span class="block text-neutral-400">built for the best</span>
+    <h1 class="text-4xl md:text-6xl 2xl:text-7xl font-semibold text-white mb-6 leading-[1.1] tracking-tight">
+      Frontend Developer
+      <span class="block text-neutral-400">building modern web experiences</span>
     </h1>
 
     <!-- Subtitle -->
-    <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+    <p class="text-sm md:text-lg 2xl:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 leading-snug 2xl:leading-relaxed">
       I'm utilizing the best web technologies and delivering premium 
       applications. Your project will benefit from enhanced performance, 
       clean code, and improved user experiences.
     </p>
 
     <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row items-center gap-6 mt-4">
-      <app-button label="View Projects" href="#projects">
-        <svg slot="right" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14"/>
-          <path d="m12 5 7 7-7 7"/>
-        </svg>
-      </app-button>
+    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+      <app-button
+        label="View Projects"
+        severity="angular"
+        iconRight="chewron-right"
+      />
+      <app-button
+        label="Resume"
+        severity="text"
+        iconRight="chewron-down"
+      />
+    </div>
 
-      <app-button label="About me" severity="danger">
-        <svg slot="left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M8 3v7M5 7l3 3 3-3M3 13h10" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </app-button>
-      <a href="#contact" class="text-white font-semibold text-sm hover:text-neutral-300 transition-colors">
-        Read my resume
+    <!-- Contact & Social Links -->
+    <div class="mt-14 flex flex-wrap justify-center items-center gap-6 md:gap-8 pt-8 border-t border-border w-full max-w-2xl text-neutral-400">
+      @for (item of socialLinks; track $index) {
+      <a
+        [attr.href]="item.href"
+        [attr.target]="item.href.startsWith('http') ? '_blank' : undefined"
+        [attr.rel]="item.href.startsWith('http') ? 'noopener noreferrer' : undefined"
+        class="flex items-center gap-2 hover:text-white transition-colors text-sm font-medium group"
+      >
+        <app-icon [name]="item.icon" />
+        <span class="hidden sm:inline">{{ item.name }}</span>
       </a>
+      }
     </div>
     
   </div>

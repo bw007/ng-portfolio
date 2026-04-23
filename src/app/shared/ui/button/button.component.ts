@@ -16,7 +16,7 @@ import type { IconName } from '../icon/icon.types';
       [type]="type()"
       (click)="onClick.emit($event)"
       class="text-white leading-none! cursor-pointer font-semibold flex items-center
-            active:opacity-75 hover:opacity-85 transition-colors
+            justify-center active:opacity-75 hover:opacity-85 transition-colors
             disabled:opacity-35 disabled:cursor-not-allowed"
     >
       @if (iconLeft()) {
@@ -40,6 +40,7 @@ export class ButtonComponent {
   readonly severity = input<ButtonSeverity>('info');
   readonly iconLeft = input<IconName>();
   readonly iconRight = input<IconName>();
+  readonly icon = input<boolean>(false);
 
   readonly onClick = output<MouseEvent>();
 
@@ -56,6 +57,9 @@ export class ButtonComponent {
       'text-xs py-1.5 px-3.5 h-8 gap-1.5 rounded-md': this.size() === 'small',
       'text-sm py-2.5 px-5 h-10 gap-2 rounded-lg!': this.size() === 'medium',
       'text-base py-3 px-7 h-12 gap-2.5 rounded-lg': this.size() === 'large',
+      'w-8! h-8!': this.icon() && this.size() === 'small',
+      'w-10! h-10!': this.icon() && this.size() === 'medium',
+      'w-12! h-12!': this.icon() && this.size() === 'large',
       'bg-blue-500 text-white': this.severity() === 'info',
       'bg-emerald-500 text-white': this.severity() === 'success',
       'bg-amber-500 text-white': this.severity() === 'warning',

@@ -15,6 +15,10 @@
   --color-angular-modern: #ff2740;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-dark-bg);
   color: #e5e5e5;

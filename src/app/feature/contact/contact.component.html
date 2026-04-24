@@ -1,31 +1,86 @@
 <div class="pt-24 min-h-screen bg-dark-bg flex items-center justify-center">
-  <section class="py-16 w-full max-w-2xl mx-auto px-6">
-    <div class="mb-12 text-center">
-      <h2 class="text-3xl md:text-4xl font-semibold text-white mb-4 tracking-tight">Let's Connect</h2>
-      <p class="text-neutral-400 font-sans text-lg">
-        Interested in working together? Drop me a message below.
+  <section class="py-16 w-full max-w-lg mx-auto px-6">
+
+    <div class="mb-10 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold text-white mb-3 tracking-tight">
+        Let's work together
+      </h2>
+      <p class="text-neutral-400 text-base">
+        Open to junior frontend roles. Drop me a message.
       </p>
     </div>
 
-    <form class="flex flex-col gap-6 bg-surface border border-border p-8 rounded-2xl">
-      <div class="flex flex-col gap-2">
-        <label for="name" class="text-sm text-neutral-300 font-medium">Name</label>
-        <input type="text" id="name" class="bg-neutral-900 border border-neutral-700 text-white text-sm rounded-lg focus:ring-angular-modern focus:border-angular-modern block w-full p-3 transition-colors outline-none" placeholder="Your name">
+    <!-- Success state -->
+    @if (sent()) {
+      <div class="bg-surface border border-border rounded-2xl p-10 text-center">
+        <div class="text-2xl mb-3">✓</div>
+        <p class="text-white font-medium mb-1">Message sent!</p>
+        <p class="text-neutral-400 text-sm">I'll get back to you within a day.</p>
+        <button
+          (click)="sent.set(false)"
+          class="mt-6 text-xs text-neutral-500 hover:text-white transition-colors">
+          Send another
+        </button>
       </div>
-      
-      <div class="flex flex-col gap-2">
-        <label for="email" class="text-sm text-neutral-300 font-medium">Email</label>
-        <input type="email" id="email" class="bg-neutral-900 border border-neutral-700 text-white text-sm rounded-lg focus:ring-angular-modern focus:border-angular-modern block w-full p-3 transition-colors outline-none" placeholder="name@example.com">
-      </div>
+    } @else {
+      <div class="flex flex-col gap-5 bg-surface border border-border p-8 rounded-2xl">
 
-      <div class="flex flex-col gap-2">
-        <label for="message" class="text-sm text-neutral-300 font-medium">Message</label>
-        <textarea id="message" rows="4" class="bg-neutral-900 border border-neutral-700 text-white text-sm rounded-lg focus:ring-angular-modern focus:border-angular-modern block w-full p-3 transition-colors outline-none" placeholder="Tell me about your project..."></textarea>
-      </div>
+        <!-- Name -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs text-neutral-400 font-medium">Name</label>
+          <input
+            type="text"
+            [formControl]="$any(form.get('name'))"
+            placeholder="Lazizbek"
+            class="bg-neutral-900 border border-neutral-800 text-white text-sm
+                   rounded-lg w-full px-3 py-2.5 outline-none transition-colors
+                   focus:border-neutral-600 placeholder:text-neutral-600"
+          />
+        </div>
 
-      <button type="button" class="mt-2 w-full bg-angular-modern hover:bg-angular-accent text-white font-medium rounded-lg text-sm px-5 py-3 text-center transition-colors">
-        Send Message
-      </button>
-    </form>
+        <!-- Email -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs text-neutral-400 font-medium">Email</label>
+          <input
+            type="email"
+            [formControl]="$any(form.get('email'))"
+            placeholder="lazizbek@example.com"
+            class="bg-neutral-900 border border-neutral-800 text-white text-sm
+                   rounded-lg w-full px-3 py-2.5 outline-none transition-colors
+                   focus:border-neutral-600 placeholder:text-neutral-600"
+          />
+        </div>
+
+        <!-- Message -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs text-neutral-400 font-medium">Message</label>
+          <textarea
+            rows="4"
+            [formControl]="$any(form.get('message'))"
+            placeholder="Tell me about the role or project..."
+            class="bg-neutral-900 border border-neutral-800 text-white text-sm
+                   rounded-lg w-full px-3 py-2.5 outline-none transition-colors
+                   focus:border-neutral-600 placeholder:text-neutral-600 resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Error -->
+        @if (error()) {
+          <p class="text-xs text-red-400">Something went wrong. Try again.</p>
+        }
+
+        <!-- Submit -->
+        <button
+          (click)="send()"
+          [disabled]="form.invalid || sending()"
+          class="mt-1 w-full text-white font-medium rounded-lg text-sm px-5 py-3
+                 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+          style="background: linear-gradient(135deg, var(--color-angular-red), var(--color-angular-pink))">
+          {{ sending() ? 'Sending...' : 'Send message' }}
+        </button>
+
+      </div>
+    }
+
   </section>
 </div>

@@ -1,23 +1,81 @@
-<div class="pt-24 min-h-screen bg-dark-bg">
-  <!-- Values / Features Section -->
-  <section id="projects" class="py-24 bg-dark-bg">
+<div class="py-16 min-h-screen bg-dark-bg">
+  <section id="projects" class=" py-16 bg-dark-bg">
     <div class="w-full max-w-5xl mx-auto px-6">
+
       <div class="mb-16 text-center">
-        <h2 class="text-3xl md:text-4xl font-semibold text-white mb-4 tracking-tight">Build the future of web apps</h2>
-        <p class="text-neutral-400 text-lg">My engineering approach is designed to help scale and improve the performance of your business.</p>
+        <h2 class="text-3xl md:text-4xl font-semibold text-white mb-3 tracking-tight">
+          Projects
+        </h2>
+        <p class="text-neutral-400 text-base">
+          Real applications I've built from scratch.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        @for (feature of features; track feature.title) {
-          <div class="bg-surface border border-border p-8 rounded-2xl flex flex-col items-center text-center hover:border-neutral-700 transition-colors">
-            <div class="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-angular-modern mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+        @for (project of projects; track project.title) {
+          <div class="bg-surface border border-border rounded-2xl overflow-hidden
+                      hover:border-neutral-700 transition-colors group">
+
+            <!-- Screenshot -->
+            <div class="w-full aspect-video bg-neutral-900 overflow-hidden">
+              <img
+                [src]="project.image"
+                [alt]="project.title"
+                class="w-full h-full object-cover object-top
+                       group-hover:scale-[1.02] transition-transform duration-500"
+              />
             </div>
-            <h3 class="text-white font-semibold text-lg mb-3">{{ feature.title }}</h3>
-            <p class="text-sm text-neutral-400 leading-relaxed">{{ feature.description }}</p>
+
+            <!-- Info -->
+            <div class="p-5 md:p-7">
+              <div class="flex items-start justify-between gap-4 mb-3">
+                <h3 class="text-white font-semibold text-xl">{{ project.title }}</h3>
+
+                <!-- Links -->
+                <div class="flex items-center gap-2 shrink-0">
+                  <a
+                    [href]="project.github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center justify-center h-8 w-8 text-xs text-neutral-400
+                            hover:text-white border border-border hover:border-neutral-600
+                            p-1 rounded-lg transition-colors"
+                  >
+                    <app-icon name="github" [size]="14"></app-icon>
+                  </a>
+                  <a
+                    [href]="project.demo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center leading-0 gap-2 h-8 border border-border hover:border-neutral-600
+                             hover:text-white text-neutral-400 text-xs font-medium 
+                            px-3 py-1.5 rounded-lg transition-colors"
+                  >
+                    Live demo
+                    <app-icon name="external-link" [size]="14"></app-icon>
+                  </a>
+                </div>
+              </div>
+
+              <p class="text-sm text-neutral-400 leading-relaxed mb-5">
+                {{ project.description }}
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2">
+                @for (tag of project.tags; track tag) {
+                  <span class="text-[11px] bg-neutral-900 border border-border
+                               text-neutral-500 px-2.5 py-1 rounded-md">
+                    {{ tag }}
+                  </span>
+                }
+              </div>
+            </div>
+
           </div>
         }
       </div>
+
     </div>
   </section>
 </div>

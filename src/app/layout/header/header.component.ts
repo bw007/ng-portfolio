@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   private readonly platformId = inject(PLATFORM_ID);
 
   isMobileMenuOpen = signal(false);
-  currentLang = signal('uz');
+  currentLang = signal('en');
   languages = [{code: 'uz', title: 'O\'z'}, {code: 'en', title: 'En'}];
 
   setLang(lang: string) {

@@ -1,24 +1,28 @@
 import { Component } from '@angular/core';
+import { IconComponent } from "@app/shared/ui/icon/icon.component";
 
 @Component({
   selector: 'app-projects',
-  standalone: true,
-  imports: [],
+  imports: [IconComponent],
   templateUrl: './projects.component.html',
 })
 export class ProjectsComponent {
-  features = [
+  projects = [
     {
-      title: 'Clean Architecture',
-      description: 'Prioritizing clean, maintainable code structures to ensure long-term stability and easy feature additions.'
+      title: 'Tech Blog',
+      description: 'A platform for writing and reading articles about the tech world. Built with Angular, featuring authentication, rich text editor, and a clean reading experience.',
+      tags: ['Angular', 'RxJS', 'Taiga UI', 'TailwindCSS', 'Supabase', 'REST API'],
+      github: 'https://github.com/bw007/thech-blog',
+      demo: 'https://ng-blog.netlify.app/',
+      image: 'projects/blog.jpg'
     },
     {
-      title: 'Performance First',
-      description: 'Applications are optimized for speed and efficiency, delivering seamless experiences even with heavy data.'
-    },
-    {
-      title: 'Responsive Design',
-      description: 'All layouts are built mobile-first, ensuring they look stunning and function perfectly on any device.'
+      title: 'Insurance CRM',
+      description: 'A dashboard for insurance agents to manage client data and send SMS notifications. Built with Angular and focused on clean data management.',
+      tags: ['Angular', 'RxJS', 'PrimeNG', 'TailwindCSS', 'Rest API'],
+      github: 'https://github.com/bw007',
+      demo: 'https://insurance-board.netlify.app/',
+      image: 'projects/insurance.jpg'
     }
   ];
 }

@@ -4,6 +4,7 @@
   "chewron-left",
   "chewron-right",
   "chewron-up",
+  "external-link",
   "github",
   "linkedin",
   "mail",

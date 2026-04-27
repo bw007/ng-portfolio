@@ -31,10 +31,11 @@ export const routes: Routes = [
         title: 'Contact',
         loadComponent: () => import('./feature/contact/contact.component').then(m => m.ContactComponent),
       },
-    ],
-  },
-  {
-    path: '**',
-    redirectTo: '',
-  },
-];
+      {
+        path: '**',
+        title: 'Page Not Found',
+        loadComponent: () => import('./feature/not-found/not-found.component').then(m => m.NotFoundComponent),
+      },
+    ]
+  }
+]

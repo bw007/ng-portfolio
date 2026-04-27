@@ -6,7 +6,8 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   template: `
-    <div id="vanta-bg">
+    <div id="vanta-bg" class="fixed top-0 left-0 w-full h-full z-0"></div>
+    <div class="relative z-10">
       <router-outlet />
     </div>
   `

@@ -8,27 +8,27 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-      },
-      {
-        path: 'home',
-        title: 'Home | NgPortfolio',
+        title: 'Home',
         loadComponent: () => import('./feature/home/home.component').then(m => m.HomeComponent),
       },
       {
+        path: 'home',
+        redirectTo: '',
+        pathMatch: 'full'
+      },
+      {
         path: 'about',
-        title: 'About | NgPortfolio',
+        title: 'About',
         loadComponent: () => import('./feature/about/about.component').then(m => m.AboutComponent),
       },
       {
         path: 'projects',
-        title: 'Projects | NgPortfolio',
+        title: 'Projects',
         loadComponent: () => import('./feature/projects/projects.component').then(m => m.ProjectsComponent),
       },
       {
         path: 'contact',
-        title: 'Contact | NgPortfolio',
+        title: 'Contact',
         loadComponent: () => import('./feature/contact/contact.component').then(m => m.ContactComponent),
       },
     ],

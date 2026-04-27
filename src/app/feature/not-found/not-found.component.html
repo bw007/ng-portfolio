@@ -1,0 +1,38 @@
+<section class="min-h-screen flex flex-col justify-center items-center pt-24 pb-12 relative overflow-hidden">
+  <div class="w-full max-w-5xl mx-auto px-6 flex flex-col items-center text-center">
+
+    <!-- 404 Badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-border rounded-lg text-xs font-medium text-neutral-300 mb-10 bg-black/50 backdrop-blur-sm">
+      <span class="text-angular-modern">404</span>
+      Page Not Found
+    </div>
+
+    <!-- Headline -->
+    <h1 class="text-4xl md:text-6xl 2xl:text-7xl font-semibold text-white mb-6 leading-[1.1] tracking-tight">
+      Oops! Page Not Found
+      <span class="block text-neutral-400">This page doesn't exist</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-sm md:text-lg 2xl:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 leading-snug 2xl:leading-relaxed">
+      The page you're looking for might have been moved, deleted, or you entered the wrong URL. Let's get you back on track.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+      <app-button
+        label="Go Home"
+        severity="angular"
+        iconRight="chewron-right"
+        routerLink="/"
+      />
+      <app-button
+        label="Contact Me"
+        severity="text"
+        iconRight="chewron-down"
+        routerLink="/contact"
+      />
+    </div>
+
+  </div>
+</section>

@@ -15,7 +15,7 @@ import type { IconName } from '../icon/icon.types';
       [disabled]="disabled()"
       [type]="type()"
       (click)="onClick.emit($event)"
-      class="text-white leading-none! cursor-pointer font-semibold flex items-center
+      class="text-white w-full leading-none! cursor-pointer font-semibold flex items-center
             justify-center active:opacity-75 hover:opacity-85 transition-colors
             disabled:opacity-35 disabled:cursor-not-allowed"
     >
@@ -25,7 +25,10 @@ import type { IconName } from '../icon/icon.types';
       <ng-content select="[slot=left]" />
       {{ label() }}
       <ng-content select="[slot=right]" />
-      @if (iconRight()) {
+      @if (loading()) {
+      <app-icon class="animate-spin" name="loader" [size]="iconSize()" />
+      }
+      @if (!loading() && iconRight()) {
       <app-icon [name]="iconRight()!" [size]="iconSize()" />
       }
     </button>
@@ -41,6 +44,7 @@ export class ButtonComponent {
   readonly iconLeft = input<IconName>();
   readonly iconRight = input<IconName>();
   readonly icon = input<boolean>(false);
+  readonly loading = input<boolean>(false);
 
   readonly onClick = output<MouseEvent>();
 

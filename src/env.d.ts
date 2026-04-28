@@ -3,6 +3,7 @@ declare interface Env {
   readonly NODE_ENV: string;
   readonly NG_APP_GMAIL_SERVICE_ID: string;
   readonly NG_APP_GMAIL_TEMPLATE_ID: string;
+  readonly NG_APP_GMAIL_SERVICE_PUBLIC_KEY: string;
   [key: string]: any;
 }
 

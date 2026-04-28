@@ -4,9 +4,12 @@
   "chewron-left",
   "chewron-right",
   "chewron-up",
+  "cicrle-check",
+  "circle-x",
   "external-link",
   "github",
   "linkedin",
+  "loader",
   "mail",
   "phone",
   "send"

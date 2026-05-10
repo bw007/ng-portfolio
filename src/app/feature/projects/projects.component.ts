@@ -29,7 +29,7 @@ export class ProjectsComponent {
       description: 'The portfolio of a software development Team..',
       tags: ['Claude Code', 'Nuxt JS', 'TailwindCSS', 'GSAP'],
       github: 'https://github.com/bw007',
-      demo: 'https://nozim-dev.uz/',
+      demo: '#',
       image: 'projects/vanguard.png'
     }
   ];

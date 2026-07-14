@@ -31,6 +31,22 @@ export class ProjectsComponent {
       github: 'https://github.com/bw007',
       demo: '#',
       image: 'projects/vanguard.png'
+    },
+    {
+      title: 'RMAB',
+      description: 'Respublika maxsus aloqa uzeli axborot portali',
+      tags: ['Claude Code', 'Nuxt JS', 'Nuxt-UI', 'TailwindCSS'],
+      github: '#',
+      demo: 'https://rmab-dev.nozim-dev.uz',
+      image: 'projects/rmab.png'
+    },
+    {
+      title: 'Ahadmix Group',
+      description: 'Ahadmix Group ADS agency projects (landing, admin and client panels)',
+      tags: ['Vue JS', 'TailwindCSS', 'Ant Design', 'Rest API'],
+      github: '#',
+      demo: '#',
+      image: 'projects/ahadmix.png'
     }
   ];
 }
